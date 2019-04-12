@@ -1,4 +1,3 @@
-// Dependencies of build process
 buildscript {
     repositories {
         maven {
@@ -35,7 +34,6 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-// Dependencies of application
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile('org.springframework.boot:spring-boot-starter-test')
