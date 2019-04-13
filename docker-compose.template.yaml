@@ -1,0 +1,7 @@
+version: '3.5'
+
+services:
+  gs-rest-service:
+    image: nem75/gs-rest-service:{{nem75:gs-rest-service}}
+    ports:
+      - "8080:8080"

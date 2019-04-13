@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
-        classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0')
+        classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.+')
     }
 }
 
@@ -17,6 +17,7 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.palantir.docker'
+apply plugin: 'com.palantir.docker-compose'
 
 group = 'nem75'
 version = '0.1.0'
@@ -29,6 +30,11 @@ docker {
     files tasks.bootJar.outputs
 }
 
+dockerCompose {
+    template 'docker-compose.template.yaml'
+    dockerComposeFile 'docker-compose.yaml'
+}
+
 repositories {
     mavenCentral()
 }
@@ -37,6 +43,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
+    compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    docker("${group}:${bootJar.baseName}:${version}")
 }
