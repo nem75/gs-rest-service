@@ -35,7 +35,11 @@ dockerCompose {
     dockerComposeFile 'docker-compose.yaml'
 }
 
-task dockerComposeDown(type:Exec) {
+task up {
+    dependsOn build, dockerTag, generateDockerCompose, dockerComposeUp
+}
+
+task down(type:Exec) {
     group = 'docker'
     commandLine 'docker-compose', 'down'
 }
