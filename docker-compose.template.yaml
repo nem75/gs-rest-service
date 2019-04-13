@@ -5,3 +5,12 @@ services:
     image: nem75/gs-rest-service:{{nem75:gs-rest-service}}
     ports:
       - "8080:8080"
+  postgres:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_PASSWORD: test123
+      POSTGRES_DB: gs-rest-service
+  adminer:
+    image: adminer
+    ports:
+      - 8081:8080
