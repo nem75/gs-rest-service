@@ -9,12 +9,6 @@ Created with spring-boot, so far utilizing
 * gradle
 * docker
 
-## Build
-
-```
-./gradlew build dockerTag generateDockerCompose
-```
-
 ## Start
 
 ```
