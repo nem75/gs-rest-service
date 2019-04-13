@@ -7,9 +7,11 @@ services:
       - "8080:8080"
   postgres:
     image: postgres:11-alpine
+    hostname: db
     environment:
-      POSTGRES_PASSWORD: test123
-      POSTGRES_DB: gs-rest-service
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: gs_rest_service
+      POSTGRES_DB: gs_rest_service
   adminer:
     image: adminer
     ports:
