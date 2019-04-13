@@ -35,6 +35,11 @@ dockerCompose {
     dockerComposeFile 'docker-compose.yaml'
 }
 
+task dockerComposeDown(type:Exec) {
+    group = 'docker'
+    commandLine 'docker-compose', 'down'
+}
+
 repositories {
     mavenCentral()
 }
