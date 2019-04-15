@@ -1,4 +1,4 @@
-FROM openjdk:13-alpine
+FROM openjdk:11-jre-slim
 VOLUME /tmp
 ADD gs-rest-service-*.jar app.jar
 RUN sh -c 'touch /app.jar'
